@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * This file is part of hyperf-config-array.
+ * This file is part of config-anyway.
  *
  * @link     https://github.com/friendofhyperf/config-anyway
  * @document https://github.com/friendofhyperf/config-anyway/blob/main/README.md
@@ -46,7 +46,7 @@ class BootProcessListener implements ListenerInterface
         $this->config = $container->get(ConfigInterface::class);
         $this->logger = $container->get(StdoutLoggerInterface::class);
 
-        $sourceClass = $this->config->get('config_array.source');
+        $sourceClass = $this->config->get('config_anyway.source');
 
         if ($sourceClass && class_exists($sourceClass)) {
             $this->source = make($sourceClass);
@@ -65,7 +65,7 @@ class BootProcessListener implements ListenerInterface
 
     public function process(object $event)
     {
-        if (! $this->config->get('config_array.enable', false)) {
+        if (! $this->config->get('config_anyway.enable', false)) {
             return;
         }
 
@@ -77,9 +77,9 @@ class BootProcessListener implements ListenerInterface
             $this->updateConfig($config);
         }
 
-        if (! $this->config->get('config_array.use_standalone_process', true)) {
+        if (! $this->config->get('config_anyway.use_standalone_process', true)) {
             Coroutine::create(function () {
-                $interval = $this->config->get('config_array.interval', 5);
+                $interval = $this->config->get('config_anyway.interval', 5);
 
                 retry(INF, function () use ($interval) {
                     $prevConfig = [];
@@ -106,7 +106,7 @@ class BootProcessListener implements ListenerInterface
 
     protected function updateConfig(array $config)
     {
-        $mapping            = $this->config->get('config_array.mapping');
+        $mapping            = $this->config->get('config_anyway.mapping');
         $configurations     = $this->format($config);
 
         if (is_string($mapping)) {

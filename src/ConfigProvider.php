@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * This file is part of hyperf-config-array.
+ * This file is part of config-anyway.
  *
  * @link     https://github.com/friendofhyperf/config-anyway
  * @document https://github.com/friendofhyperf/config-anyway/blob/main/README.md
@@ -41,9 +41,9 @@ class ConfigProvider
             'publish' => [
                 [
                     'id'          => 'config',
-                    'description' => 'The config for config_array.',
-                    'source'      => __DIR__ . '/../publish/config_array.php',
-                    'destination' => BASE_PATH . '/config/autoload/config_array.php',
+                    'description' => 'The config for config_anyway.',
+                    'source'      => __DIR__ . '/../publish/config_anyway.php',
+                    'destination' => BASE_PATH . '/config/autoload/config_anyway.php',
                 ],
             ],
         ];

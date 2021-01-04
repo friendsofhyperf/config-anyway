@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * This file is part of hyperf-config-array.
+ * This file is part of config-anyway.
  *
  * @link     https://github.com/friendofhyperf/config-anyway
  * @document https://github.com/friendofhyperf/config-anyway/blob/main/README.md
@@ -54,7 +54,7 @@ class OnPipeMessageListener implements ListenerInterface
      */
     public function process(object $event)
     {
-        if (! $this->config->get('config_array.enable', false)) {
+        if (! $this->config->get('config_anyway.enable', false)) {
             return;
         }
 
@@ -62,7 +62,7 @@ class OnPipeMessageListener implements ListenerInterface
             /** @var PipeMessage $data */
             $data = $event->data;
 
-            $mapping            = $this->config->get('config_array.mapping');
+            $mapping            = $this->config->get('config_anyway.mapping');
             $configurations     = $data->configurations;
 
             if (is_string($mapping)) {

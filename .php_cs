@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<'EOF'
-This file is part of hyperf-config-array.
+This file is part of config-anyway.
 
 @link     https://github.com/friendofhyperf/config-anyway
 @document https://github.com/friendofhyperf/config-anyway/blob/main/README.md

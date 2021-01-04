@@ -37,7 +37,7 @@ class DBSource implements SourceInterface
 ## Set config
 
 ~~~php
-// config/autoload/config_array.php
+// config/autoload/config_anyway.php
 return [
     // ...
     'source' => App\Source\DBSource::class,

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * This file is part of hyperf-config-array.
+ * This file is part of config-anyway.
  *
  * @link     https://github.com/friendofhyperf/config-anyway
  * @document https://github.com/friendofhyperf/config-anyway/blob/main/README.md
@@ -56,8 +56,8 @@ class ConfigFetcherProcess extends AbstractProcess
         $this->config = $container->get(ConfigInterface::class);
         $this->logger = $container->get(StdoutLoggerInterface::class);
 
-        if ($this->config->get('config_array.source') && class_exists($this->config->get('config_array.source'))) {
-            $this->source = make($this->config->get('config_array.source'));
+        if ($this->config->get('config_anyway.source') && class_exists($this->config->get('config_anyway.source'))) {
+            $this->source = make($this->config->get('config_anyway.source'));
         }
     }
 
@@ -70,9 +70,9 @@ class ConfigFetcherProcess extends AbstractProcess
     public function isEnable($server): bool
     {
         return $server instanceof Server
-            && $this->config->get('config_array.enable', false)
-            && $this->config->get('config_array.use_standalone_process', true)
-            && in_array(SourceInterface::class, class_implements($this->config->get('config_array.source')));
+            && $this->config->get('config_anyway.enable', false)
+            && $this->config->get('config_anyway.use_standalone_process', true)
+            && in_array(SourceInterface::class, class_implements($this->config->get('config_anyway.source')));
     }
 
     public function handle(): void
@@ -83,8 +83,8 @@ class ConfigFetcherProcess extends AbstractProcess
             if ($config !== $this->cacheConfig) {
                 $this->cacheConfig = $config;
 
-                $workerCount       = $this->server->setting['worker_num'] + $this->server->setting['task_worker_num'] - 1;
-                $pipeMessage       = new PipeMessage($this->format($config));
+                $workerCount = $this->server->setting['worker_num'] + $this->server->setting['task_worker_num'] - 1;
+                $pipeMessage = new PipeMessage($this->format($config));
 
                 for ($workerId = 0; $workerId <= $workerCount; ++$workerId) {
                     $this->server->sendMessage($pipeMessage, $workerId);
@@ -103,7 +103,7 @@ class ConfigFetcherProcess extends AbstractProcess
                 }
             }
 
-            sleep($this->config->get('config_array.interval', 5));
+            sleep((int) $this->config->get('config_anyway.interval', 5));
         }
     }
 
