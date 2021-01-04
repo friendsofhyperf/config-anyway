@@ -1,0 +1,26 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * This file is part of hyperf-config-array.
+ *
+ * @link     https://github.com/friendofhyperf/config-anyway
+ * @document https://github.com/friendofhyperf/config-anyway/blob/main/README.md
+ * @contact  huangdijia@gmail.com
+ * @license  https://github.com/friendofhyperf/config-anyway/blob/main/LICENSE
+ */
+namespace FriendsOfHyperf\ConfigAnyway\Source;
+
+use FriendsOfHyperf\ConfigAnyway\SourceInterface;
+
+class DemoSource implements SourceInterface
+{
+    public function toArray(): array
+    {
+        return [
+            'bar' => [
+                'foo' => date('Y-m-d'),
+            ],
+        ];
+    }
+}
