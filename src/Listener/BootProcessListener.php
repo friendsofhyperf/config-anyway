@@ -84,7 +84,7 @@ class BootProcessListener implements ListenerInterface
                 retry(INF, function () use ($interval) {
                     $prevConfig = [];
                     while (true) {
-                        $coordinator  = CoordinatorManager::until(Constants::WORKER_EXIT);
+                        $coordinator = CoordinatorManager::until(Constants::WORKER_EXIT);
                         $workerExited = $coordinator->yield($interval);
 
                         if ($workerExited) {
@@ -106,8 +106,8 @@ class BootProcessListener implements ListenerInterface
 
     protected function updateConfig(array $config)
     {
-        $mapping            = $this->config->get('config_anyway.mapping');
-        $configurations     = $this->format($config);
+        $mapping = $this->config->get('config_anyway.mapping');
+        $configurations = $this->format($config);
 
         if (is_string($mapping)) {
             $this->config->set($mapping, $configurations);

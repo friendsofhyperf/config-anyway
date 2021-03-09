@@ -23,7 +23,7 @@ class ConfigProvider
 
         return [
             'dependencies' => [],
-            'processes'    => [
+            'processes' => [
                 ConfigFetcherProcess::class,
             ],
             'listeners' => [
@@ -39,9 +39,9 @@ class ConfigProvider
             ],
             'publish' => [
                 [
-                    'id'          => 'config',
+                    'id' => 'config',
                     'description' => 'The config for config_anyway.',
-                    'source'      => __DIR__ . '/../publish/config_anyway.php',
+                    'source' => __DIR__ . '/../publish/config_anyway.php',
                     'destination' => BASE_PATH . '/config/autoload/config_anyway.php',
                 ],
             ],

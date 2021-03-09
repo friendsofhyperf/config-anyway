@@ -83,14 +83,14 @@ class ConfigFetcherProcess extends AbstractProcess
             if ($config !== $this->cacheConfig) {
                 $this->cacheConfig = $config;
 
-                $workerCount = $this->server->setting['worker_num'] + $this->server->setting['task_worker_num'] - 1;
+                $workerNum = $this->server->setting['worker_num'] + $this->server->setting['task_worker_num'] - 1;
                 $pipeMessage = new PipeMessage($this->format($config));
 
-                for ($workerId = 0; $workerId <= $workerCount; ++$workerId) {
+                for ($workerId = 0; $workerId <= $workerNum; ++$workerId) {
                     $this->server->sendMessage($pipeMessage, $workerId);
                 }
 
-                $string    = serialize($pipeMessage);
+                $string = serialize($pipeMessage);
                 $processes = ProcessCollector::all();
 
                 /** @var \Swoole\Process $process */

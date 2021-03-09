@@ -80,7 +80,7 @@ return PhpCsFixer\Config::create()
         'single_quote'                           => true,
         'standardize_not_equals'                 => true,
         'multiline_comment_opening_closing'      => true,
-        'binary_operator_spaces'                 => ['default' => 'align_single_space'],
+        // 'binary_operator_spaces'                 => ['default' => 'align_single_space'],
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
