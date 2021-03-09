@@ -19,7 +19,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           tools: phpize, pecl
-          extensions: swoole
+          extensions: swoole,redis
           coverage: none
       - name: Setup Packages
         run: composer update -o
