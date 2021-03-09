@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 namespace FriendsOfHyperf\ConfigAnyway\Listener;
 
-use FriendsOfHyperf\ConfigAnyway\SourceInterface;
+use FriendsOfHyperf\ConfigAnyway\Source\SourceInterface;
 use Hyperf\Command\Event\BeforeHandle;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\StdoutLoggerInterface;

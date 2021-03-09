@@ -13,7 +13,7 @@ return [
     'enable'                 => env('CONFIG_ANYWAY_ENABLE', true),
     'interval'               => env('CONFIG_ANYWAY_INTERVAL', 5),
     'use_standalone_process' => env('CONFIG_ANYWAY_USE_STANDALONE_PROCESS', true),
-    'source'                 => \FriendsOfHyperf\ConfigAnyway\Source\DemoSource::class,
+    'source'                 => FriendsOfHyperf\ConfigAnyway\Source\DemoSource::class,
     'mapping'                => [
         // source => target
         'bar.foo' => 'bar.foo',

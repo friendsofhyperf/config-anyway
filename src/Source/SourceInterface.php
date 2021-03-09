@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @contact  huangdijia@gmail.com
  * @license  https://github.com/friendofhyperf/config-anyway/blob/main/LICENSE
  */
-namespace FriendsOfHyperf\ConfigAnyway;
+namespace FriendsOfHyperf\ConfigAnyway\Source;
 
 interface SourceInterface
 {

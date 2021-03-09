@@ -22,9 +22,8 @@ class ConfigProvider
         defined('BASE_PATH') or define('BASE_PATH', __DIR__ . '/../../../');
 
         return [
-            'dependencies' => [
-            ],
-            'processes' => [
+            'dependencies' => [],
+            'processes'    => [
                 ConfigFetcherProcess::class,
             ],
             'listeners' => [

@@ -22,7 +22,7 @@ php bin/hyperf.php vendor:publish friendsofhyperf/config-anyway
 ~~~php
 namespace App\Source;
 
-use FriendsOfHyperf\ConfigAnyway\SourceInterface;
+use FriendsOfHyperf\ConfigAnyway\Source\SourceInterface;
 use Hyperf\DB\DB;
 
 class DBSource implements SourceInterface

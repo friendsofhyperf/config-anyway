@@ -60,10 +60,9 @@ class OnPipeMessageListener implements ListenerInterface
 
         if (property_exists($event, 'data') && $event->data instanceof PipeMessage) {
             /** @var PipeMessage $data */
-            $data = $event->data;
-
-            $mapping            = $this->config->get('config_anyway.mapping');
+            $data               = $event->data;
             $configurations     = $data->configurations;
+            $mapping            = $this->config->get('config_anyway.mapping');
 
             if (is_string($mapping)) {
                 $this->config->set($mapping, $configurations);

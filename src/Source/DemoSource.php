@@ -11,8 +11,6 @@ declare(strict_types=1);
  */
 namespace FriendsOfHyperf\ConfigAnyway\Source;
 
-use FriendsOfHyperf\ConfigAnyway\SourceInterface;
-
 class DemoSource implements SourceInterface
 {
     public function toArray(): array

@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace FriendsOfHyperf\ConfigAnyway\Process;
 
 use FriendsOfHyperf\ConfigAnyway\PipeMessage;
-use FriendsOfHyperf\ConfigAnyway\SourceInterface;
+use FriendsOfHyperf\ConfigAnyway\Source\SourceInterface;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Process\AbstractProcess;
