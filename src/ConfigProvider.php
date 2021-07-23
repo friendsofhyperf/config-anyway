@@ -11,10 +11,6 @@ declare(strict_types=1);
  */
 namespace FriendsOfHyperf\ConfigAnyway;
 
-use FriendsOfHyperf\ConfigAnyway\Listener\BootProcessListener;
-use FriendsOfHyperf\ConfigAnyway\Listener\OnPipeMessageListener;
-use FriendsOfHyperf\ConfigAnyway\Process\ConfigFetcherProcess;
-
 class ConfigProvider
 {
     public function __invoke(): array
@@ -22,14 +18,10 @@ class ConfigProvider
         defined('BASE_PATH') or define('BASE_PATH', __DIR__ . '/../../../');
 
         return [
-            'dependencies' => [],
-            'processes' => [
-                ConfigFetcherProcess::class,
+            'dependencies' => [
+                ClientInterface::class => Client::class,
             ],
-            'listeners' => [
-                BootProcessListener::class,
-                OnPipeMessageListener::class,
-            ],
+            'listeners' => [],
             'annotations' => [
                 'scan' => [
                     'paths' => [
@@ -37,14 +29,7 @@ class ConfigProvider
                     ],
                 ],
             ],
-            'publish' => [
-                [
-                    'id' => 'config',
-                    'description' => 'The config for config_anyway.',
-                    'source' => __DIR__ . '/../publish/config_anyway.php',
-                    'destination' => BASE_PATH . '/config/autoload/config_anyway.php',
-                ],
-            ],
+            'publish' => [],
         ];
     }
 }
