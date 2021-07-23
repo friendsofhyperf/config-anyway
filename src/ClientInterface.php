@@ -9,9 +9,8 @@ declare(strict_types=1);
  * @contact  huangdijia@gmail.com
  * @license  https://github.com/friendofhyperf/config-anyway/blob/main/LICENSE
  */
-namespace FriendsOfHyperf\ConfigAnyway\Source;
+namespace FriendsOfHyperf\ConfigAnyway;
 
-interface SourceInterface
+interface ClientInterface extends \Hyperf\ConfigCenter\Contract\ClientInterface
 {
-    public function toArray(): array;
 }
