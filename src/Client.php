@@ -59,6 +59,6 @@ class Client implements ClientInterface
             }, $key);
         }
 
-        return $result;
+        return $parallel->wait();
     }
 }
