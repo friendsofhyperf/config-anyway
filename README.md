@@ -17,35 +17,18 @@ composer require friendsofhyperf/config-anyway
 php bin/hyperf.php vendor:publish friendsofhyperf/config-anyway
 ~~~
 
-## Define source
+## Configure
 
 ~~~php
-namespace App\Source;
-
-use FriendsOfHyperf\ConfigAnyway\Source\SourceInterface;
-use Hyperf\DB\DB;
-
-class DBSource implements SourceInterface
-{
-    public function toArray(): array
-    {
-        return DB::query('SELECT * FROM `config`;');
-    }
-}
-~~~
-
-## Set config
-
-~~~php
-// config/autoload/config_anyway.php
+// config/autoload/config_center.php
 return [
-    // ...
-    'source' => App\Source\DBSource::class,
-    // ...
-    'mapping' => 'setting', // using as config('setting')
-    // or
-    'mapping' => [
-        'setting_key' => 'setting.key', // using as config('setting.key')
-    ],
+    'drivers' => [
+        'driver' => FriendsOfHyperf\ConfigAnyway\AnywayDriver::class,
+        'mapping' => [
+            'key1' => function() { return []; },
+            'key2' => App\Source\ArrayHandler::class, // need __invoke()
+            'key3' => [App\Source\ArrayHandler::class, '__invoke'],
+        ],
+    ]
 ];
 ~~~
