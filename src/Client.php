@@ -25,18 +25,12 @@ class Client implements ClientInterface
     private $config;
 
     /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    /**
      * @var StdoutLoggerInterface
      */
     private $logger;
 
     public function __construct(ContainerInterface $container)
     {
-        $this->container = $container;
         $this->config = $container->get(ConfigInterface::class);
         $this->logger = $container->get(StdoutLoggerInterface::class);
     }
