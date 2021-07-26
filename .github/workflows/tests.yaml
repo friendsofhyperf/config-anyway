@@ -37,8 +37,8 @@ jobs:
           cd $PROJECT_HOME
           echo "Install package"
           composer config repositories.hyperf-config-anyway path $PACKAGE_HOME
-          composer require "friendsofyhyperf/config-anyway:*@dev" -o
-          php bin/hyperf.php vendor:publish friendsofyhyperf/config-anyway
+          composer require "friendsofhyperf/config-anyway:*@dev" -o
+          php bin/hyperf.php vendor:publish friendsofhyperf/config-anyway
           cp $PACKAGE_HOME/tests/IndexController.php.dist $PROJECT_HOME/app/Controller/IndexController.php
           composer dump-autoload -o
           echo "Service start"
