@@ -11,17 +11,28 @@ declare(strict_types=1);
  */
 namespace FriendsOfHyperf\ConfigAnyway\Tests;
 
+use Hyperf\Testing\Client;
+
 /**
  * @internal
  * @coversNothing
  */
 class ExampleTest extends TestCase
 {
+    /**
+     * @var Client
+     */
+    private $client;
+
+    public function __construct()
+    {
+        $this->client = make(Client::class);
+    }
+
     public function testExample()
     {
-        $url = 'http://127.0.0.1:9501';
-        $content = file_get_contents($url);
+        $response = $this->client->get('/');
 
-        $this->assertSame(date('Y-m-d'), $content);
+        $this->assertSame(date('Y-m-d'), $response);
     }
 }
