@@ -38,8 +38,8 @@ jobs:
           echo "Install package"
           composer config repositories.hyperf-config-anyway path $PACKAGE_HOME
           composer require "friendsofhyperf/config-anyway:*@dev" -o
-          cp $PACKAGE_HOME/tests/stub/IndexController.php.dist $PROJECT_HOME/app/Controller/IndexController.php
-          cp $PACKAGE_HOME/tests/stub/config_center.php.dist $PROJECT_HOME/config/autoload/config_center.php
+          cp $PACKAGE_HOME/tests/stub/IndexController.php.stub $PROJECT_HOME/app/Controller/IndexController.php
+          cp $PACKAGE_HOME/tests/stub/config_center.php.stub $PROJECT_HOME/config/autoload/config_center.php
           composer dump-autoload -o
           echo "Service start"
           php -d swoole.use_shortname=Off bin/hyperf.php start &
