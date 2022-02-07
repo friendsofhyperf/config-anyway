@@ -19,15 +19,9 @@ use Throwable;
 
 class Client implements ClientInterface
 {
-    /**
-     * @var ConfigInterface
-     */
-    private $config;
+    private \Hyperf\Contract\ConfigInterface $config;
 
-    /**
-     * @var StdoutLoggerInterface
-     */
-    private $logger;
+    private \Hyperf\Contract\StdoutLoggerInterface $logger;
 
     public function __construct(ContainerInterface $container)
     {

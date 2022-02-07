@@ -22,7 +22,7 @@ class AnywayDriver extends AbstractDriver
         $this->client = $container->get(ClientInterface::class);
     }
 
-    protected function updateConfig(array $config)
+    protected function updateConfig(array $config): void
     {
         foreach ($config as $key => $value) {
             $this->config->set($key, $value);
