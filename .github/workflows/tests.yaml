@@ -37,7 +37,7 @@ jobs:
           cd $PROJECT_HOME
           echo "Install package"
           composer config repositories.hyperf-config-anyway path $PACKAGE_HOME
-          composer require "friendsofhyperf/config-anyway:*@dev" -o
+          composer require "friendsofhyperf/config-anyway:*@1.x-dev" -o
           cp $PACKAGE_HOME/tests/stub/IndexController.php.stub $PROJECT_HOME/app/Controller/IndexController.php
           cp $PACKAGE_HOME/tests/stub/config_center.php.stub $PROJECT_HOME/config/autoload/config_center.php
           composer dump-autoload -o
