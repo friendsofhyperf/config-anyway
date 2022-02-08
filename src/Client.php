@@ -32,7 +32,6 @@ class Client implements ClientInterface
     public function pull(): array
     {
         $mapping = $this->config->get('config_center.drivers.anyway.mapping', []);
-        $result = [];
         $parallel = new Parallel();
 
         foreach ($mapping as $key => $callback) {
