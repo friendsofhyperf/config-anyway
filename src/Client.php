@@ -14,19 +14,12 @@ namespace FriendsOfHyperf\ConfigAnyway;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\StdoutLoggerInterface;
 use Hyperf\Utils\Parallel;
-use Psr\Container\ContainerInterface;
 use Throwable;
 
 class Client implements ClientInterface
 {
-    private \Hyperf\Contract\ConfigInterface $config;
-
-    private \Hyperf\Contract\StdoutLoggerInterface $logger;
-
-    public function __construct(ContainerInterface $container)
+    public function __construct(protected ConfigInterface $config, protected StdoutLoggerInterface $logger)
     {
-        $this->config = $container->get(ConfigInterface::class);
-        $this->logger = $container->get(StdoutLoggerInterface::class);
     }
 
     public function pull(): array
